@@ -7,18 +7,26 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget>createState(){
     // TODO : implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
+// ? _ <- putting this before the class name can trun the public class to private.
+// ? and the class will only be available in the same file, also works for methods and class variables.
+class _MyAppState extends State<MyApp>{
+  var _questionIndex = 0;
 
-class MyAppState extends State<MyApp>{
-  var questionIndex = 0;
-
-  void answerQuestion() {
+  void _answerQuestion() {
     setState((){
-      questionIndex += 1;
+      _questionIndex += 1;
     });
-    print(questionIndex);
+    // ? set state is a function that foreces flutter to re-render the ui 
+    // ? how ever not the entire.
+
+    /*
+    ? setState() updated the widget by calling the build() method again
+    it only changes the specific element changes not the entire ui auto
+     */
+    print(_questionIndex);
   }
 
   @override
@@ -36,9 +44,9 @@ class MyAppState extends State<MyApp>{
       body: Column(
         children: [
           Text(
-            questions[questionIndex],
+            questions[_questionIndex],
           ),
-          ElevatedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+          ElevatedButton(child: Text('Answer 1'), onPressed: _answerQuestion),
           ElevatedButton(
               child: Text('Answer 2'),
               onPressed: () => print('answer 2 Chosen')),
