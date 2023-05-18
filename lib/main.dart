@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
+  void answerQuestion(){
+    print('answer chosen');
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> questions = [
@@ -13,14 +18,20 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
       // Scaffold Creates a basic window fit for device
       appBar: AppBar(
-        title: Text("My App Title"),
+        title: const Text("My App Title"),
       ),
-      body: const Column(
+      body: Column(
         children: [
           Text("The Question"),
-          ElevatedButton(child: Text('Answer 1'), onPressed: null),
-          ElevatedButton(child: Text('Answer 2'), onPressed: null),
-          ElevatedButton(child: Text('Answer 3'), onPressed: null),
+          ElevatedButton(
+            child: Text('Answer 1'), 
+            onPressed: answerQuestion),
+          ElevatedButton(
+            child: Text('Answer 2'), 
+            onPressed: answerQuestion),
+          ElevatedButton(
+            child: Text('Answer 3'), 
+            onPressed: answerQuestion),
         ],
       ),
     ));
