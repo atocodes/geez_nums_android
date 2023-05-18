@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
-  State<StatefulWidget>createState(){
+  State<StatefulWidget> createState() {
     // TODO : implement createState
     return _MyAppState();
   }
 }
+
 // ? _ <- putting this before the class name can trun the public class to private.
 // ? and the class will only be available in the same file, also works for methods and class variables.
-class _MyAppState extends State<MyApp>{
+class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
   void _answerQuestion() {
-    setState((){
+    setState(() {
       _questionIndex += 1;
     });
-    // ? set state is a function that foreces flutter to re-render the ui 
+    // ? set state is a function that foreces flutter to re-render the ui
     // ? how ever not the entire.
 
     /*
@@ -43,9 +44,7 @@ class _MyAppState extends State<MyApp>{
       ),
       body: Column(
         children: [
-          Text(
-            questions[_questionIndex],
-          ),
+          Question(questions[_questionIndex]),
           ElevatedButton(child: Text('Answer 1'), onPressed: _answerQuestion),
           ElevatedButton(
               child: Text('Answer 2'),
