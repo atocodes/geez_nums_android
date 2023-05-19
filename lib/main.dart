@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
       {
         'questionText': 'What is Youre favorite color?',
         'answers': ['Black', 'Red', 'Green', 'White'],
@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
         'answers': ['ato-codes','Beamlak','mhcda','you'],
       },
     ];
+
     return MaterialApp(
         home: Scaffold(
       // Scaffold Creates a basic window fit for device
