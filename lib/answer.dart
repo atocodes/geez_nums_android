@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Answer extends StatelessWidget {
   final VoidCallback selectHandler;
   final String answer;
-  Answer(this.selectHandler, this.answer);
+  const Answer(this.selectHandler, this.answer, {super.key});
 
   @override
   Widget build(BuildContext context) {
